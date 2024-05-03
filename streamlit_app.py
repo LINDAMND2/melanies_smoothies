@@ -27,7 +27,7 @@ ingredient_list = st.multiselect('Choose up to 5 ingredients:',
                                  my_dataframe, max_selections=5)
 
 #st.write(ingredient_list)
-if ingredient_list:
+if ingredients_list:
 #and len(ingredient_list) < 6:
   #  st.write(ingredient_list)
  #   st.text(ingredient_list)
