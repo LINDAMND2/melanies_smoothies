@@ -49,11 +49,12 @@ if ingredients_list:
         fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_chosen)
         fv_df = st.dataframe(data=fruityvice_response.json(),use_container_width=True)
     st.write(ingredients_string)
-    my_insert_statement = "insert into SMOOTHIES.PUBLIC.ORDERS(INGREDIENTS, NAME_ON_ORDER) values('"+ingredients_string+"','"+name_on_order+"');"
-    st.write(my_insert_statement)
+     my_insert_stmt = """ insert into smoothies.public.orders(ingredients,name_on_order)
+            values ('""" + ingredients_string + """','"""+name_on_order+"""')"""
 
+    #st.write(my_insert_stmt)
     time_to_insert = st.button('Submit Order')
 
-    if time_to_insert and my_insert_statement and len(ingredients_list) == 5:
-        session.sql(my_insert_statement).collect()
-        st.success('Your smoothie is ordered!', icon='✅')
+    if time_to_insert:
+        session.sql(my_insert_stmt).collect()
+        st.success('Your Smoothie is ordered!', icon="✅")
