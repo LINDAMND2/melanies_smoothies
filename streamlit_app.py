@@ -33,6 +33,7 @@ if ingredient_list and len(ingredient_list) < 6:
     ingredients_string = ''
     for fruit_chosen in ingredient_list:
         ingredients_string += fruit_chosen + ' '
+        st.subheader(fruit_chosen + 'Nutrition Information')
         fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
         fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
     st.write(ingredients_string)
