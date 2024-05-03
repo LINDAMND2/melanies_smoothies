@@ -43,6 +43,6 @@ if ingredients_list:
 
     time_to_insert = st.button('Submit Order')
 
-    if time_to_insert and my_insert_statement and len(ingredient_list) == 5:
+    if time_to_insert and my_insert_statement and len(ingredients_list) == 5:
         session.sql(my_insert_statement).collect()
         st.success('Your smoothie is ordered!', icon='✅')
