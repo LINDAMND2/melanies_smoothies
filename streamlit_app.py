@@ -27,9 +27,10 @@ ingredient_list = st.multiselect('Choose up to 5 ingredients:',
                                  my_dataframe, max_selections=5)
 
 #st.write(ingredient_list)
-if ingredient_list and len(ingredient_list) < 6:
-    st.write(ingredient_list)
-    st.text(ingredient_list)
+if ingredient_list 
+#and len(ingredient_list) < 6:
+  #  st.write(ingredient_list)
+ #   st.text(ingredient_list)
     ingredients_string = ''
     for fruit_chosen in ingredient_list:
         ingredients_string += fruit_chosen + ' '
