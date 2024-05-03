@@ -14,7 +14,7 @@ st.write(
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
 #st.text(fruityvice_response.json())
 
-fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
+
 
 name_on_order = st.text_input('Name on Smoothie')
 st.write('The name on your smoothies will be ', name_on_order)
@@ -33,7 +33,8 @@ if ingredient_list and len(ingredient_list) < 6:
     ingredients_string = ''
     for fruit_chosen in ingredient_list:
         ingredients_string += fruit_chosen + ' '
-
+        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+        fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
     st.write(ingredients_string)
     my_insert_statement = "insert into SMOOTHIES.PUBLIC.ORDERS(INGREDIENTS, NAME_ON_ORDER) values('"+ingredients_string+"','"+name_on_order+"');"
     st.write(my_insert_statement)
